@@ -1,0 +1,26 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: "ubuntu-latest"
+
+variables:
+  resourceGroupName: "testst"
+  location: "centralindia"
+  storageAccountName: "stlearndevops001" # must be globally unique, lowercase, no dashes
+
+steps:
+  - task: AzureCLI@2
+    inputs:
+      azureSubscription: "Storage-Account-service"
+      scriptType: "bash"
+      scriptLocation: "inlineScript"
+      inlineScript: |
+        az group create --name $(resourceGroupName) --location $(location)
+        az storage account create \
+          --name $(storageAccountName) \
+          --resource-group $(resourceGroupName) \
+          --location $(location) \
+          --sku Standard_LRS
