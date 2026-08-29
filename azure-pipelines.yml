@@ -7,7 +7,7 @@ pool:
   vmImage: "ubuntu-latest"
 
 variables:
-  resourceGroupName: "testst"
+  resourceGroupName: "test-pipelines"
   location: "centralindia"
   storageAccountName: "stlearndevops001" # must be globally unique, lowercase, no dashes
 
