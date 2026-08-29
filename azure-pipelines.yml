@@ -8,7 +8,7 @@ pool:
 
 variables:
   resourceGroupName: "test-pipelines"
-  location: "centralindia"
+  location: "Southeast Asia"
   storageAccountName: "stlearndevops001" # must be globally unique, lowercase, no dashes
 
 steps:
