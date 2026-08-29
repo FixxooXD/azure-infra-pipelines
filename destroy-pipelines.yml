@@ -1,0 +1,16 @@
+trigger: none # <-- critical line, explained below
+
+pool:
+  vmImage: "ubuntu-latest"
+
+variables:
+  resourceGroupName: "test-pipelines"
+
+steps:
+  - task: AzureCLI@2
+    inputs:
+      azureSubscription: "Storage-Account-service"
+      scriptType: "bash"
+      scriptLocation: "inlineScript"
+      inlineScript: |
+        az group delete --name $(resourceGroupName) --yes --no-wait
