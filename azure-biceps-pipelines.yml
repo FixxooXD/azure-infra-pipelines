@@ -10,7 +10,7 @@ pool:
   vmImage: "ubuntu-latest"
 
 variables:
-  azureServiceConnection: "your-arm-service-connection-name"
+  azureServiceConnection: "ADO-biceps-connection"
   location: "southeastasia"
 
 stages:
