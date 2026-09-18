@@ -2,7 +2,7 @@ targetScope = 'subscription'
 
 param location string = 'southeastasia'
 param resourceGroupName string = 'test-biceps-rg'
-param storageAccountName string = 'testbicepstorage'
+param storageAccountName string = 'st${uniqueString(subscription().id)}'
 
 resource rg 'Microsoft.Resources/resourceGroups@2025-04-01' = {
   name: resourceGroupName
