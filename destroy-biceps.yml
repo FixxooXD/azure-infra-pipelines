@@ -1,0 +1,22 @@
+# azure-pipelines-destroy.yml
+trigger: none
+
+pool:
+  vmImage: "ubuntu-latest"
+
+variables:
+  azureServiceConnection: "ADO-biceps-connection"
+  resourceGroupName: "test-biceps-rg"
+
+stages:
+  - stage: Destroy
+    jobs:
+      - job: DeleteResourceGroup
+        steps:
+          - task: AzureCLI@2
+            inputs:
+              azureSubscription: $(azureServiceConnection)
+              scriptType: bash
+              scriptLocation: inlineScript
+              inlineScript: |
+                az group delete --name $(resourceGroupName) --yes --no-wait
